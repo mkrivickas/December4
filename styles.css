@@ -1,0 +1,106 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f8ff;
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1px;
+  width: 300px;
+  height: 300px;
+}
+
+/* Individual Grid Cell */
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  position: relative;  /* Needed for cap positioning */
+  transition: all 0.3s ease;
+  border-radius: 50%; /* Makes the cell a circle */
+  aspect-ratio: 1 / 1; /* Ensures the cell remains square (aspect ratio = 1) */
+}
+
+/* Hover Effect */
+.cell:hover {
+  transform: scale(1.1);
+  filter: brightness(1.3);
+}
+
+/* Ornament Colors */
+.ornament-red {
+  background-color: #ff0000; /* Red */
+}
+.ornament-green {
+  background-color: #00ff00; /* Green */
+}
+.ornament-gold {
+  background-color: #ffd700; /* Gold */
+}
+.ornament-silver {
+  background-color: #c0c0c0; /* Silver */
+}
+.ornament-blue {
+  background-color: #1e90ff; /* Blue */
+}
+.ornament-pink {
+  background-color: #ff69b4; /* Pink */
+}
+
+/* Pseudo-element to create the cap on the ornament */
+.ornament-red::before,
+.ornament-green::before,
+.ornament-gold::before,
+.ornament-silver::before,
+.ornament-blue::before,
+.ornament-pink::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  width: 14px;
+  height: 10px;
+  background-color: #808080; /* Gray color for the cap */
+  border-radius: 5px;
+  transform: rotate(45deg); /* Rotate cap to make it look like it's angled */
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); /* Add shadow for a metallic look */
+}
+
+/* Decoration (emoji) */
+.emoji {
+  font-size: 28px;
+}
+
+.emoji:hover {
+  transform: rotate(15deg);
+}
+
+/* Snowflake Decoration (used in empty cells) */
+.snowflake {
+  font-size: 18px;
+  color: #00bfff; /* Light blue color for snowflakes */
+  opacity: 0.8;
+}
+
+.snowflake:hover {
+  opacity: 1;
+  transform: rotate(45deg);
+}
